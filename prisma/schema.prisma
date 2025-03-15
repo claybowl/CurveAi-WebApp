@@ -5,7 +5,9 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("SERVER_DATABASE_URL")
+  url      = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+  relationMode = "prisma"
 }
 
 generator client {
