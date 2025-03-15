@@ -68,6 +68,7 @@
     "prisma": "^5.19.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-markdown": "^10.1.0",
     "recharts": "^2.12.7",
     "remix-pwa": "^4.0.5",
     "sharp": "^0.33.5",
@@ -76,6 +77,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.4",
     "tsx": "^4.15.6",
+    "turbo-stream": "^3.1.0",
     "uuid": "^10.0.0",
     "zenstack": "2.6.2",
     "zod": "^3.23.8",
@@ -113,5 +115,25 @@
   },
   "zenstack": {
     "schema": "./models/schema.zmodel"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "core-js",
+      "esbuild",
+      "prisma",
+      "sharp",
+      "zenstack"
+    ],
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "core-js",
+      "esbuild",
+      "prisma",
+      "sharp",
+      "zenstack"
+    ]
   }
 }
