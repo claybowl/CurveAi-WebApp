@@ -1,4 +1,5 @@
 import { vitePlugin as remix } from '@remix-run/dev'
+import { vercelPreset } from '@remix-run/dev/vercel'
 import esbuild from 'esbuild'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -32,6 +33,11 @@ export default defineConfig({
         unstable_optimizeDeps: true,
       },
       serverBuildFile: 'remix.js',
+      serverModuleFormat: "esm",
+      serverPlatform: "node",
+      presets: [
+        vercelPreset()
+      ],
       buildEnd: async () => {
         await esbuild
           .build({
