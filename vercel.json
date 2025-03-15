@@ -1,15 +1,11 @@
 {
-  "buildCommand": "prisma generate && pnpm run build",
-  "devCommand": "pnpm run dev",
-  "installCommand": "pnpm install",
   "framework": "remix",
-  "outputDirectory": "build/client",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api" }
-  ],
+  "buildCommand": "prisma generate && pnpm run build",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm run dev",
   "functions": {
     "api/index.js": {
-      "memory": 512,
+      "memory": 1024,
       "maxDuration": 60
     }
   }

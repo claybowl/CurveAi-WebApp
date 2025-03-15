@@ -43,6 +43,7 @@
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.2",
+    "@vercel/remix": "^2.15.3",
     "@zenstackhq/runtime": "2.6.2",
     "@zenstackhq/trpc": "2.6.2",
     "antd": "5.21.0",

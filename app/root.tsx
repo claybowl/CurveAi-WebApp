@@ -1,4 +1,4 @@
-import type { LinkDescriptor, LinksFunction } from '@remix-run/node'
+import type { LinkDescriptor, LinksFunction } from '@vercel/remix'
 import {
   Links,
   Meta,

@@ -39,3 +39,6 @@ pnpm-debug.log*
 # Database files
 *.db
 *.sqlite
+
+# Vercel
+.vercel

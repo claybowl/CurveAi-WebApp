@@ -1,24 +1,23 @@
 import { PrismaClient } from '@prisma/client'
 
-// Prevent multiple Prisma Client instances
+// For serverless environments like Vercel
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-// Create a simple standard client first
-const prismaClientSingleton = () => {
-  // For Neon on Vercel, we specifically use the pooled connection which works better for serverless
-  return new PrismaClient({
-    log: ['error'],
-    datasourceUrl: process.env.DATABASE_URL || process.env.POSTGRES_PRISMA_URL
-  })
-}
+// Set a specific connection URL for Vercel, with correct pooling settings
+const connectionUrl = process.env.POSTGRES_PRISMA_URL || 
+                      process.env.DATABASE_URL || 
+                      undefined
 
-// Use existing client or create new one
-const prisma = globalForPrisma.prisma ?? prismaClientSingleton()
+// Create PrismaClient with the right options
+const prisma = globalForPrisma.prisma ?? new PrismaClient({
+  log: ['error'],
+  datasourceUrl: connectionUrl,
+})
 
-// Don't recreate the client in development
+// Save the instance in dev to avoid multiple clients
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
-// Export the client
+// Export the client for use throughout the app
 export const Database = prisma

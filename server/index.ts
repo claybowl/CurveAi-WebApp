@@ -1,4 +1,4 @@
-import { createRequestHandler } from '@remix-run/express'
+import { createRequestHandler } from '@vercel/remix/express'
 import compression from 'compression'
 import express from 'express'
 import { createServer } from 'http'
